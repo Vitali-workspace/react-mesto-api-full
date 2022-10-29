@@ -9,6 +9,7 @@ require('dotenv').config();
 const routerUsers = require('./routes/users');
 const routerCards = require('./routes/cards');
 const authentication = require('./routes/authentication');
+const requestCors = require('./middlewares/requestCors');
 const auth = require('./middlewares/auth');
 const PageNotFoundError = require('./errors/PageNotFoundError');
 
@@ -19,8 +20,8 @@ const { PORT = 3000 } = process.env;
 const app = express();
 mongoose.connect('mongodb://localhost:27017/mestodb');
 
-app.use(cors());
 app.use(requestLogger);
+app.use(cors(requestCors));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
