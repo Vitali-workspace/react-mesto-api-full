@@ -1,0 +1,11 @@
+.popup__btn-close_type_position-tooltip {
+  left: 440px;
+  bottom: 319px;
+}
+
+@media screen and (max-width: 768px) {
+  .popup__btn-close_type_position-tooltip {
+    left: 263px;
+    bottom: 302px;
+  }
+}

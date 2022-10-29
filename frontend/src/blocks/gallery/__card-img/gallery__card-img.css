@@ -1,0 +1,12 @@
+.gallery__card-img {
+  min-width: 282px;
+  max-width: 282px;
+  min-height: 282px;
+  max-height: 282px;
+  object-fit: cover;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.gallery__card-img:hover {
+  cursor: pointer;
+}

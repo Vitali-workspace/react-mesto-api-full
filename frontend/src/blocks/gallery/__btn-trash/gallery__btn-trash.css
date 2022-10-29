@@ -1,0 +1,17 @@
+.gallery__btn-trash {
+  background-image: url(../../../images/Trash.svg);
+  background-repeat: no-repeat;
+  position: relative;
+  bottom: 265px;
+  left: 247px;
+  border: none;
+  background-color: transparent;
+  width: 18px;
+  height: 19px;
+  transition: opacity .4s linear;
+}
+
+.gallery__btn-trash:hover {
+  cursor: pointer;
+  opacity: .6;
+}

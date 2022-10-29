@@ -1,0 +1,22 @@
+.authorization__header {
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  color: #FFFFFF;
+  text-align: center;
+  margin: 58px 0 18px 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .authorization__header {
+    max-width: 581px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .authorization__header {
+    margin-top: 41px;
+    font-size: 20px;
+    line-height: 24px;
+  }
+}

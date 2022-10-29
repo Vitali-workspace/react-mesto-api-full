@@ -1,0 +1,9 @@
+.popup__btn-save_type_position-avatar {
+  margin: 28px 36px 7px;
+}
+
+@media screen and (max-width: 768px) {
+  .popup__btn-save_type_position-avatar {
+    margin: 28px 22px 7px;
+  }
+}

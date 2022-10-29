@@ -1,0 +1,17 @@
+.popup__btn-close_type_position {
+  left: 101%;
+  bottom: 1vh;
+}
+
+@media screen and (max-width: 768px) {
+  .popup__btn-close_type_position {
+    left: 93%;
+    bottom: 2vh;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .popup__btn-close_type_position {
+    left: 92%;
+  }
+}

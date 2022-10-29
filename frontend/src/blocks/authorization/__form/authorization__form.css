@@ -1,0 +1,18 @@
+.authorization__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 880px;
+}
+
+@media screen and (max-width: 1024px) {
+  .authorization__form {
+    max-width: 581px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .authorization__form {
+    min-width: 320px;
+  }
+}

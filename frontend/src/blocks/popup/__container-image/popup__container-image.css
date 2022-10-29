@@ -1,0 +1,10 @@
+.popup__container-image {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  height: 68vh;
+}

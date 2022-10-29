@@ -1,0 +1,19 @@
+.root__content {
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1024px) {
+  .root__content {
+    max-width: 581px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .root__content {
+    max-width: 310px;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

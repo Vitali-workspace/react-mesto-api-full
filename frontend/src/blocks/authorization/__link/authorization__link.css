@@ -1,0 +1,21 @@
+.authorization__link {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding-top: 15px;
+  transition: opacity .4s linear;
+}
+
+.authorization__link:hover {
+  cursor: pointer;
+  opacity: .6;
+}
+
+@media screen and (max-width: 768px) {
+  .authorization__link {
+    padding-top: 20px;
+  }
+}

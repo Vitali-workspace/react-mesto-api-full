@@ -1,0 +1,15 @@
+.gallery__btn-favorites {
+  background-image: url(../../../images/Vector-hart.svg);
+  background-repeat: no-repeat;
+  border: none;
+  background-color: transparent;
+  width: 22px;
+  height: 19px;
+  padding: 0 27px 0 0;
+  transition: opacity .4s linear;
+}
+
+.gallery__btn-favorites:hover {
+  cursor: pointer;
+  opacity: .6;
+}

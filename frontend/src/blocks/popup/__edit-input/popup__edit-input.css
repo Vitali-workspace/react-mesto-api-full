@@ -1,0 +1,25 @@
+.popup__edit-input {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  width: 351px;
+  margin: 0 36px 0;
+  padding: 10px 3px;
+  color: #000000;
+}
+
+.popup__edit-input::placeholder {
+  font-size: 14px;
+  line-height: 17px;
+  color: #C4C4C4;
+}
+
+.popup__edit-input:valid {
+  border-bottom-color: rgba(0, 0, 0, .2);
+}
+
+@media screen and (max-width: 768px) {
+  .popup__edit-input {
+    width: 231px;
+    margin: 0 21px 0;
+  }
+}

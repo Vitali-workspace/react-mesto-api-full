@@ -1,0 +1,13 @@
+.popup__icon-status-fail {
+  background-image: url(../../../images/Union-Red.svg);
+  background-repeat: no-repeat;
+  width: 120px;
+  height: 120px;
+  margin: 60px auto 32px;
+}
+
+@media screen and (max-width: 768px) {
+  .popup__icon-status-fail {
+    margin: 50px auto 39px;
+  }
+}
