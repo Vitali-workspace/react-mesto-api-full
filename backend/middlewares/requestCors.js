@@ -13,7 +13,6 @@ module.exports = function (req, res, next) {
   // обрабатываем простой cors запрос
   if (allowedCors.includes(origin)) {
     res.header('Access-Control-Allow-Origin', origin);
-    // res.header('Access-Control-Allow-Origin', "*");
   }
 
   // обрабатываем предварительный cors запрос
