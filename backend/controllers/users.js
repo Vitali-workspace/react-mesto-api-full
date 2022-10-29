@@ -6,7 +6,7 @@ const PageNotFoundError = require('../errors/PageNotFoundError');
 const BadRequestError = require('../errors/BadRequestError');
 const ConflictError = require('../errors/ConflictError');
 
-const { tokenSecret = 'dev-secret-key' } = process.env;
+const { NODE_ENV, JWT_SECRET } = process.env;
 
 
 module.exports.getAllUsers = (req, res, next) => {
@@ -102,10 +102,12 @@ module.exports.updateAvatar = (req, res, next) => {
 
 module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
+  const devTokenSecret = 'dev-secret-key';
+  const checkJWT = NODE_ENV === 'production' ? JWT_SECRET : devTokenSecret;
 
   User.findUserByCredentials(email, password)
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, tokenSecret, { expiresIn: '7d' });
+      const token = jwt.sign({ _id: user._id }, checkJWT, { expiresIn: '7d' });
       res.cookie('jwt', token, { maxAge: 3600000, httpOnly: true });
       res.send({ token });
     }).catch(next);
