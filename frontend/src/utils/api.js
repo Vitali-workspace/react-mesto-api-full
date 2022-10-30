@@ -85,9 +85,9 @@ class Api {
 }
 
 const requestApi = new Api({
-  baseUrl: 'https://nomoreparties.co/v1/cohort-40/',
+  baseUrl: 'https://mestoproject.vitali.nomoredomains.icu',
   headers: {
-    authorization: '6e087a0f-c27a-43c1-a0e6-91ac2272b53b',
+    authorization: `Bearer ${localStorage.getItem('jwt')}`,
     'Content-Type': 'application/json'
   }
 });
