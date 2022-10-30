@@ -14,8 +14,7 @@ export function register(password, email) {
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({ "password": password, "email": email }),
-    credentials: 'include'
+    body: JSON.stringify({ "password": password, "email": email })
   }).then(err => checkError(err))
 
 }

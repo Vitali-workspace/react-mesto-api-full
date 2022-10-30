@@ -20,7 +20,8 @@ class Api {
   getInitialCards() {
     return fetch(this._cardsUrl, {
       method: 'GET',
-      headers: this._headersProperty
+      headers: this._headersProperty,
+      credentials: 'include',
     })
       .then(this._checkError);
   }
@@ -29,7 +30,8 @@ class Api {
   getProfileInfo() {
     return fetch(this._profileInfoUrl, {
       method: 'GET',
-      headers: this._headersProperty
+      headers: this._headersProperty,
+      credentials: 'include',
     })
       .then(this._checkError);
   }
@@ -39,7 +41,8 @@ class Api {
     return fetch(this._profileInfoUrl, {
       method: 'PATCH',
       headers: this._headersProperty,
-      body: JSON.stringify({ name: `${newProfileInfo.name}`, about: `${newProfileInfo.about}` })
+      body: JSON.stringify({ name: `${newProfileInfo.name}`, about: `${newProfileInfo.about}` }),
+      credentials: 'include',
     })
       .then(this._checkError);
   }
@@ -49,7 +52,8 @@ class Api {
     return fetch(this._cardsUrl, {
       method: 'POST',
       headers: this._headersProperty,
-      body: JSON.stringify({ name: `${inputsInfo.name}`, link: `${inputsInfo.link}` })
+      body: JSON.stringify({ name: `${inputsInfo.name}`, link: `${inputsInfo.link}` }),
+      credentials: 'include',
     })
       .then(this._checkError);
   }
@@ -58,7 +62,8 @@ class Api {
   deleteCardServer(idCard) {
     return fetch(this._deleteCardUrl + `${idCard}`, {
       method: 'DELETE',
-      headers: this._headersProperty
+      headers: this._headersProperty,
+      credentials: 'include',
     })
       .then(this._checkError);
   }
@@ -68,7 +73,8 @@ class Api {
     return fetch(this._profileAvatarUrl, {
       method: 'PATCH',
       headers: this._headersProperty,
-      body: JSON.stringify({ avatar: `${link.avatar}` })
+      body: JSON.stringify({ avatar: `${link.avatar}` }),
+      credentials: 'include',
     })
       .then(this._checkError);
   }
@@ -78,6 +84,7 @@ class Api {
     return fetch(this._likeCardUrl + `${idCard}/likes`, {
       method: isLiked ? 'PUT' : 'DELETE',
       headers: this._headersProperty,
+      credentials: 'include',
     })
       .then(this._checkError);
   }
