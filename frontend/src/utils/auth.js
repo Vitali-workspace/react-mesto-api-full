@@ -1,4 +1,4 @@
-const BASE_URL = 'https://auth.nomoreparties.co';
+const BASE_URL = 'https://mestoproject.vitali.nomoredomains.icu';
 
 function checkError(response) {
   const result = (response.ok)
