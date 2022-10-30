@@ -158,7 +158,7 @@ function App() {
       .then(res => {
         if (res.data) {
           setInfoTooltipPopupOpen({ open: true, status: 'success' });
-          history.push('/sign-in');
+          history.push('/signin');
         }
       })
       .catch(err => {
@@ -188,7 +188,7 @@ function App() {
     localStorage.removeItem('jwt');
     setAuthorized(false);
     setEmail('');
-    history.push('/sign-in');
+    history.push('/signin');
   }
 
   return (
@@ -215,16 +215,16 @@ function App() {
               onConfirmPopup={handleDeleteClick}
             />
 
-            <Route path='/sign-up'>
+            <Route path='/signup'>
               <Register onRegister={handleRegistration} />
             </Route>
 
-            <Route path='/sign-in'>
+            <Route path='/signin'>
               <Login onLogin={handleLogin} />
             </Route>
 
             <Route>
-              {isAuthorized ? (<Redirect to='/' />) : (<Redirect to='/sign-in' />)}
+              {isAuthorized ? (<Redirect to='/' />) : (<Redirect to='/signin' />)}
             </Route>
 
           </Switch>

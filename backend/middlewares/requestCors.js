@@ -9,7 +9,7 @@ const allowedCors = [
   'https://localhost:3000',
   'http://localhost:3001',
   'https://localhost:3001',
-  'localhost:3000'
+  'localhost:3000',
 ];
 
 module.exports = function (req, res, next) {
@@ -22,7 +22,7 @@ module.exports = function (req, res, next) {
   // обрабатываем предварительный cors запрос
   const { method } = req;
   const requestHeaders = req.headers['access-control-request-headers'];
-  const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
+  const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
 
   if (method === 'OPTIONS') {
     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);

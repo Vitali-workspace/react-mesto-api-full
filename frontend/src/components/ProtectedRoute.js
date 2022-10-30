@@ -7,7 +7,7 @@ function ProtectedRoute({ component: Component, ...props }) {
       {
         () => props.statusAuth
           ? <Component {...props} />
-          : <Redirect to="/sign-in" />
+          : <Redirect to="/signin" />
       }
     </Route>
   )

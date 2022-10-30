@@ -52,7 +52,7 @@ function Register(props) {
 
         <Link
           className="authorization__link"
-          to="/sign-in">Уже зарегистрированы? Войти</Link>
+          to="/signin">Уже зарегистрированы? Войти</Link>
       </form>
 
     </section>
