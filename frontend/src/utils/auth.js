@@ -14,10 +14,8 @@ export function register(password, email) {
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({
-      "password": password,
-      "email": email
-    })
+    body: JSON.stringify({ "password": password, "email": email }),
+    credentials: 'include'
   }).then(err => checkError(err))
 
 }
@@ -27,10 +25,8 @@ export function authorize(password, email) {
   return fetch(`${BASE_URL}/signin`, {
     method: 'POST',
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      "password": password,
-      "email": email
-    })
+    body: JSON.stringify({ "password": password, "email": email }),
+    credentials: 'include'
   }).then(err => checkError(err))
 }
 
@@ -42,5 +38,6 @@ export function validationToken(token) {
       "Content-Type": "application/json",
       "Authorization": `Bearer ${token}`
     },
+    credentials: 'include'
   }).then(err => checkError(err));
 }
