@@ -1,4 +1,4 @@
-const BASE_URL = 'https://mestoproject.vitali.nomoredomains.icu';
+const BASE_URL = 'https://api.mestoproject.vitali.nomoredomains.icu';
 
 function checkError(response) {
   const result = (response.ok)
