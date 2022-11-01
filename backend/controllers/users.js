@@ -11,7 +11,7 @@ const { NODE_ENV, JWT_SECRET } = process.env;
 
 module.exports.getAllUsers = (req, res, next) => {
   User.find({})
-    .then((users) => res.send({ data: users }))
+    .then((users) => res.send(users))
     .catch((err) => next(err));
 };
 
@@ -23,7 +23,7 @@ module.exports.getUserId = (req, res, next) => {
         next(new PageNotFoundError('Запрошенный id не найден'));
         return;
       }
-      res.send({ data: id });
+      res.send(id);
     })
     .catch((err) => {
       if (err.name === 'CastError') {
@@ -67,7 +67,7 @@ module.exports.updateProfile = (req, res, next) => {
   const userId = req.user._id;
   User.findByIdAndUpdate(userId, { name, about }, { new: true, runValidators: true })
     .then((newUser) => {
-      res.send({ data: newUser });
+      res.send(newUser);
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
@@ -86,7 +86,7 @@ module.exports.updateAvatar = (req, res, next) => {
   const userId = req.user._id;
   User.findByIdAndUpdate(userId, { avatar }, { new: true, runValidators: true })
     .then((newAvatar) => {
-      res.send({ data: newAvatar });
+      res.send(newAvatar);
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
