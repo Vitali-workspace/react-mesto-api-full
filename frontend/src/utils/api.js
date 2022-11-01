@@ -48,10 +48,11 @@ class Api {
 
   // добавление новой карточки на сервер
   addCardServer(inputsInfo) {
+    const { name, link } = inputsInfo;
     return fetch(this._cardsUrl, {
       method: 'POST',
       headers: this._headersProperty,
-      body: JSON.stringify({ name: `${inputsInfo.name}`, link: `${inputsInfo.link}` }),
+      body: JSON.stringify({ name, link }),
       credentials: 'include',
     })
       .then(this._checkError);
