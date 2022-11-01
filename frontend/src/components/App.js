@@ -45,8 +45,8 @@ function App() {
         }).catch(err => console.log(err))
 
       api.getInitialCards()
-        .then((cardsInfo) => {
-          setCards(cardsInfo)
+        .then(({ cards }) => {
+          setCards(cards)
         }).catch(err => console.log(err))
     }
   }, [isAuthorized]);
@@ -58,7 +58,7 @@ function App() {
       auth.validationToken(token)
         .then(res => {
           handleAuthorized();
-          setEmail(res.data.email);
+          setEmail(res.email);
           history.push('/');
         })
     }
