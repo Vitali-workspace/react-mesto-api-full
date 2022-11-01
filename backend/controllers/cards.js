@@ -6,7 +6,7 @@ const BadRequestError = require('../errors/BadRequestError');
 
 module.exports.getAllCards = (req, res, next) => {
   Card.find({})
-    .then((cards) => res.send({ data: cards }))
+    .then((cards) => res.send({ cards }))
     .catch(next);
 };
 
@@ -16,7 +16,7 @@ module.exports.createCard = (req, res, next) => {
   const { name, link } = req.body;
 
   Card.create({ name, link, owner })
-    .then((newCard) => res.send({ data: newCard }))
+    .then((newCard) => res.send(newCard))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new BadRequestError('ошибка в запросе'));
@@ -62,7 +62,7 @@ module.exports.putLikeCard = (req, res, next) => {
       if (!like) {
         return next(new PageNotFoundError('Карточка не найдена'));
       }
-      return res.send({ data: like });
+      return res.send(like);
     }).catch((err) => {
       if (err.name === 'CastError') {
         next(new BadRequestError('ошибка в запросе'));
@@ -79,7 +79,7 @@ module.exports.dislikeCard = (req, res, next) => {
       if (!like) {
         return next(new PageNotFoundError('Карточка не найдена'));
       }
-      return res.send({ data: like });
+      return res.send(like);
     }).catch((err) => {
       if (err.name === 'CastError') {
         next(new BadRequestError('ошибка в запросе'));
