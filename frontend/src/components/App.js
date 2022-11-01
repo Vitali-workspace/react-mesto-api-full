@@ -111,7 +111,7 @@ function App() {
         setCurrentUser(profileInfo);
         closeAllPopups();
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 
   function handleUpdateAvatar(avatarUrl) {
@@ -120,7 +120,7 @@ function App() {
         setCurrentUser(avatarInfo);
         closeAllPopups();
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 
   function handleCardLike(card) {
@@ -131,7 +131,7 @@ function App() {
         const newCards = cards.map((elementCard) => elementCard._id === card._id ? newCard : elementCard);
         setCards(newCards);
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 
   function handleAddPlaceSubmit(newCard) {
@@ -140,7 +140,7 @@ function App() {
         setCards([newCardInfo, ...cards]);
         closeAllPopups();
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 
   function handleCardDelete(card) {
@@ -150,18 +150,16 @@ function App() {
         setCards(newListCards);
         closeAllPopups();
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err))
   }
 
   function handleRegistration(password, email) {
     auth.register(password, email)
-      .then(res => {
-        if (res.data) {
-          setInfoTooltipPopupOpen({ open: true, status: 'success' });
-          history.push('/signin');
-        }
+      .then(() => {
+        setInfoTooltipPopupOpen({ open: true, status: 'success' });
+        history.push('/signin');
       })
-      .catch(err => {
+      .catch((err) => {
         setInfoTooltipPopupOpen({ open: true, status: 'fail' });
         console.log(`ошибка в регистрации: ${err}`);
       })
@@ -170,7 +168,7 @@ function App() {
 
   function handleLogin(password, email) {
     auth.authorize(password, email)
-      .then(res => {
+      .then((res) => {
         if (res.token) {
           localStorage.setItem('jwt', res.token);
           setEmail(email);
@@ -178,7 +176,7 @@ function App() {
           history.push('/');
         }
       })
-      .catch(err => {
+      .catch((err) => {
         setInfoTooltipPopupOpen({ open: true, status: 'fail' });
         console.log(`ошибка в авторизации: ${err}`)
       })
