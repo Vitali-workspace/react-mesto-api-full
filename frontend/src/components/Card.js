@@ -5,12 +5,12 @@ function Card(props) {
 
   const currentUser = React.useContext(CurrentUserContext);
   // проверка id карточки с id моего пользователя.
-  const isOwn = props.card.owner._id === currentUser._id;
+  const isOwn = props.card.owner === currentUser._id;
   const buttonTrashHidden = (
     `gallery__btn-trash ${isOwn ? '' : 'gallery__btn-trash_hidden'}`
   );
 
-  const isLiked = props.card.likes.some(elementCard => elementCard._id === currentUser._id);
+  const isLiked = props.card.likes.some(cardId => cardId === currentUser._id);
   const cardLikeButton = isLiked ? `gallery__btn-favorites_active` : '';
 
   //функция с данными карточки для работы попапа ImagePopup

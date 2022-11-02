@@ -124,7 +124,7 @@ function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some(usersCard => usersCard._id === isCurrentUser._id);
+    const isLiked = card.likes.some(usersCard => usersCard === isCurrentUser._id);
     api.changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
         // получение массива с изменёнными лайками.
