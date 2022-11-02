@@ -144,7 +144,7 @@ function App() {
   function handleCardDelete(card) {
     api.deleteCardServer(card)
       .then(() => {
-        const newListCards = cards.filter((elementCard) => elementCard.id === card ? false : true)
+        const newListCards = cards.filter((elementCard) => elementCard._id === card ? false : true)
         setCards(newListCards);
         closeAllPopups();
       })
