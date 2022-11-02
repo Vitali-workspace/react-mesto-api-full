@@ -54,14 +54,12 @@ function App() {
   // проверка наличия токена для фоновой авторизации
   React.useEffect(() => {
     const token = localStorage.getItem('jwt');
-    if (token) {
-      auth.validationToken(token)
-        .then(res => {
-          handleAuthorized();
-          setEmail(res.email);
-          history.push('/');
-        })
-    }
+    auth.validationToken(token)
+      .then(res => {
+        handleAuthorized();
+        setEmail(res.email);
+        history.push('/');
+      })
   }, [history]);
 
 
