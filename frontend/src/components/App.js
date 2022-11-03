@@ -34,33 +34,31 @@ function App() {
   const [isAuthorized, setAuthorized] = React.useState(false);
   const [isEmail, setEmail] = React.useState('');
   const history = useHistory();
-
+  const token = localStorage.getItem('jwt');
 
   React.useEffect(() => {
+    if (token) {
+      auth.validationToken(token)
+        .then(res => {
+          handleAuthorized();
+          setEmail(res.email);
+          history.push('/');
+        }).catch(err => console.log(err))
+    }
+
     if (isAuthorized) {
 
-      api.getProfileInfo()
+      api.getProfileInfo(token)
         .then((profileInfo) => {
           setCurrentUser(profileInfo)
         }).catch(err => console.log(err))
 
-      api.getInitialCards()
+      api.getInitialCards(token)
         .then(({ cards }) => {
           setCards(cards)
         }).catch(err => console.log(err))
     }
-  }, [isAuthorized]);
-
-  // проверка наличия токена для фоновой авторизации
-  React.useEffect(() => {
-    const token = localStorage.getItem('jwt');
-    auth.validationToken(token)
-      .then(res => {
-        handleAuthorized();
-        setEmail(res.email);
-        history.push('/');
-      })
-  }, [history]);
+  }, [isAuthorized, history]);
 
 
   function closeAllPopups() {
@@ -104,7 +102,7 @@ function App() {
   }
 
   function handleUpdateUser(userInfo) {
-    api.changeProfileInfo(userInfo)
+    api.changeProfileInfo(userInfo, token)
       .then((profileInfo) => {
         setCurrentUser(profileInfo);
         closeAllPopups();
@@ -113,7 +111,7 @@ function App() {
   }
 
   function handleUpdateAvatar(avatarUrl) {
-    api.addAvatarServer(avatarUrl)
+    api.addAvatarServer(avatarUrl, token)
       .then((avatarInfo) => {
         setCurrentUser(avatarInfo);
         closeAllPopups();
@@ -123,7 +121,7 @@ function App() {
 
   function handleCardLike(card) {
     const isLiked = card.likes.some(usersCard => usersCard === isCurrentUser._id);
-    api.changeLikeCardStatus(card._id, !isLiked)
+    api.changeLikeCardStatus(card._id, !isLiked, token)
       .then((newCard) => {
         // получение массива с изменёнными лайками.
         const newCards = cards.map((elementCard) => elementCard._id === card._id ? newCard : elementCard);
@@ -133,7 +131,7 @@ function App() {
   }
 
   function handleAddPlaceSubmit(newCard) {
-    api.addCardServer(newCard)
+    api.addCardServer(newCard, token)
       .then((newCardInfo) => {
         setCards([newCardInfo, ...cards]);
         closeAllPopups();
@@ -142,7 +140,7 @@ function App() {
   }
 
   function handleCardDelete(card) {
-    api.deleteCardServer(card)
+    api.deleteCardServer(card, token)
       .then(() => {
         const newListCards = cards.filter((elementCard) => elementCard._id === card ? false : true)
         setCards(newListCards);
