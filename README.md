@@ -15,10 +15,16 @@ Backend - https://api.mestoproject.vitali.nomoredomains.icu
 Ссылка на репозиторий проекта https://github.com/Vitali-workspace/react-mesto-api-full
 
 ## В проекте использованы технологии
+
+### Front-end
 - React
+- JavaScript
 - Webpack
+- Адаптивная вёрстка
+- БЭМ
+
+### Back-end
 - NodeJS
 - Express
 - MongoDB
-- JavaScript
 - Яндекс.Облако
