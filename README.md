@@ -3,16 +3,7 @@
 Проект **"Место"** разработан для ознакомления с разными местами. С целью открытия для себя новых интересных локаций.
 
 ## Описание
-Репозиторий для приложения проекта `Mesto`, включающий фронтенд и бэкенд части приложения со следующими возможностями: авторизации и регистрации пользователей, операции с карточками и пользователями.
-
-
-IP - 62.84.113.251
-
-Frontend - https://mestoproject.vitali.nomoredomains.icu
-
-Backend - https://api.mestoproject.vitali.nomoredomains.icu
-
-Ссылка на репозиторий проекта https://github.com/Vitali-workspace/react-mesto-api-full
+Репозиторий для приложения проекта `Mesto`, включающий фронтенд и бэкенд части приложения со следующими функционалом: регистрация, авторизация, аутентификация пользователей. Создание и удаление карточек из базы данных. Установка и удаление лайков на карточках.
 
 ## В проекте использованы технологии
 
@@ -20,6 +11,8 @@ Backend - https://api.mestoproject.vitali.nomoredomains.icu
 - React
 - JavaScript
 - Webpack
+- Flexbox
+- Grid
 - Адаптивная вёрстка
 - БЭМ
 
@@ -27,4 +20,8 @@ Backend - https://api.mestoproject.vitali.nomoredomains.icu
 - NodeJS
 - Express
 - MongoDB
-- Яндекс.Облако
+
+<!--
+Frontend - https://mestoproject.vitali.nomoredomains.icu
+Backend - https://api.mestoproject.vitali.nomoredomains.icu
+-->
